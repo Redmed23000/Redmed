@@ -1,0 +1,4 @@
+/data/tardoc/tardoc.db
+/data/tardoc/raw/
+__pycache__/
+*.pyc
