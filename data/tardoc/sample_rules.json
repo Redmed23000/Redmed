@@ -1,0 +1,46 @@
+{
+  "codes": [
+    {
+      "code": "A100",
+      "description": "Consultation de base",
+      "time_unit_minutes": 5,
+      "effective_date": "2024-01-01"
+    },
+    {
+      "code": "B200",
+      "description": "Acte spécialisé",
+      "time_unit_minutes": 10,
+      "effective_date": "2024-01-01"
+    }
+  ],
+  "exclusions": [
+    {
+      "code": "A100",
+      "excluded_code": "B200",
+      "reason": "Incompatible avec acte spécialisé"
+    }
+  ],
+  "incompatibilities": [
+    {
+      "code_a": "B200",
+      "code_b": "A100",
+      "reason": "Ne pas combiner B200 avec A100"
+    }
+  ],
+  "conditions": [
+    {
+      "code": "B200",
+      "expression": "has(A100)",
+      "message": "B200 nécessite A100"
+    }
+  ],
+  "limits": [
+    {
+      "code": "A100",
+      "limit_type": "max_occurrences",
+      "value": 1,
+      "period": "day",
+      "message": "A100 limité à 1 par jour"
+    }
+  ]
+}
