@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "locale": "fr-CH",
+    "updated_at": "2026-02-05",
+    "disclaimer": "A valider par le medecin responsable et les procedures cantonales/locales."
+  },
+  "protocols": [
+    {
+      "id": "wounds_adult",
+      "title": "Plaies (adulte)",
+      "red_flags": [
+        "Hemorragie non controlee",
+        "Suspicion lesion tendon/nerf/vaisseau",
+        "Deficit neurovasculaire distal",
+        "Plaie infectee avec signes systemiques"
+      ],
+      "checklist": [
+        "Mecanisme et heure du traumatisme",
+        "Profondeur/souillure/corps etranger",
+        "Douleur EVA",
+        "Statut antitetanique"
+      ]
+    },
+    {
+      "id": "emergency_triage",
+      "title": "Urgences (tri)",
+      "red_flags": [
+        "Detresse respiratoire",
+        "Douleur thoracique suggestive",
+        "Deficit neurologique brutal",
+        "Suspicion sepsis avec instabilite"
+      ],
+      "checklist": [
+        "ABCDE",
+        "TA, FC, FR, SpO2, temperature",
+        "Douleur EVA",
+        "Heure de debut des symptomes"
+      ]
+    },
+    {
+      "id": "pain_management",
+      "title": "Gestion de la douleur",
+      "red_flags": [
+        "Douleur brutale atypique",
+        "Signe neuro associe",
+        "Suspicion SCA",
+        "Abdomen aigu"
+      ],
+      "checklist": [
+        "EVA entree",
+        "Type de douleur",
+        "Traitement administre",
+        "Reevaluation EVA 30-60 min"
+      ]
+    },
+    {
+      "id": "acute_pyelonephritis_adult",
+      "title": "Pyelonephrite aigue (adulte)",
+      "red_flags": [
+        "Hypotension/tachycardie/confusion",
+        "Vomissements incoercibles",
+        "Grossesse",
+        "Obstacle urinaire ou immunosuppression"
+      ],
+      "checklist": [
+        "Constantes completes",
+        "BU et prelevement urinaire avant ATB si possible",
+        "Allergies et traitements",
+        "Capacite de prise per os"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "name": "EAU Guidelines on Urological Infections",
+      "version": "2024",
+      "url": "https://uroweb.org/guidelines/urological-infections",
+      "checked_at": "2026-02-05"
+    },
+    {
+      "name": "NICE NG111 - Pyelonephritis (acute): antimicrobial prescribing",
+      "version": "2024 update",
+      "url": "https://www.nice.org.uk/guidance/ng111",
+      "checked_at": "2026-02-05"
+    },
+    {
+      "name": "Surviving Sepsis Campaign",
+      "version": "2021 + living updates",
+      "url": "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-guidelines-2021",
+      "checked_at": "2026-02-05"
+    }
+  ]
+}

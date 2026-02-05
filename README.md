@@ -30,3 +30,36 @@ python scripts/ingest_tardoc.py --source /chemin/vers/tardoc_officiel.pdf --vers
 2. Convertir au format JSON (voir `data/tardoc/sample_rules.json`).
 3. Lancer `scripts/update_rules.py` avec le numéro de version.
 4. Consulter `tardoc_updates` pour l'historique.
+
+## Prototype de protocoles de soins (assistantes médicales)
+
+Le dépôt inclut un premier lot de contenus pour une future application Windows de protocoles :
+
+- `docs/protocoles_soins_suisse.md` : trame opérationnelle et protocoles initiaux (plaies, urgences, douleur, pyélonéphrite).
+- `data/protocols/protocols_seed.fr-CH.json` : seed JSON structuré exploitable côté application.
+
+Ces contenus sont des **bases de travail** et nécessitent une validation médicale locale/cantonale avant déploiement.
+
+## Application exécutable Windows (protocoles de soins)
+
+### Lancer localement (dev)
+
+```bash
+python app_protocoles.py
+```
+
+### Vérifier les données sans lancer l'UI
+
+```bash
+python app_protocoles.py --check
+```
+
+### Générer un `.exe` Windows
+
+Depuis PowerShell:
+
+```powershell
+./scripts/build_protocols_exe.ps1
+```
+
+L'exécutable sera produit dans `dist/ProtocolesSoins/ProtocolesSoins.exe`.
