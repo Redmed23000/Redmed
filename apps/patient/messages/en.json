@@ -1,0 +1,9 @@
+{
+  "nav":{"dashboard":"Dashboard","intake":"Intake","messages":"Messages","files":"Documents","billing":"Billing","profile":"Profile"},
+  "dashboard":{"title":"Patient dashboard"},
+  "intake":{"title":"Intake questionnaire"},
+  "messages":{"title":"Secure messages"},
+  "files":{"title":"Document upload"},
+  "billing":{"title":"Subscription billing"},
+  "profile":{"title":"Profile and consent"}
+}
