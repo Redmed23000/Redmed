@@ -2,3 +2,9 @@
 /data/tardoc/raw/
 __pycache__/
 *.pyc
+node_modules/
+.pnpm-store/
+.next/
+dist/
+playwright-report/
+.env

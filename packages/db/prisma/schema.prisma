@@ -1,0 +1,140 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  patient
+  clinician
+  admin
+}
+
+enum IntakeStatus {
+  draft
+  submitted
+  triaged
+}
+
+model User {
+  id             String            @id @default(cuid())
+  email          String            @unique
+  role           UserRole
+  authProviderId String            @unique
+  createdAt      DateTime          @default(now())
+  patientProfile PatientProfile?
+  clinician      ClinicianProfile?
+  subscriptions  Subscription[]
+  ownedFiles     FileAsset[]       @relation("ownerFiles")
+  sentMessages   Message[]
+  actorLogs      AuditLog[]
+}
+
+model PatientProfile {
+  id                  String                 @id @default(cuid())
+  userId              String                 @unique
+  user                User                   @relation(fields: [userId], references: [id])
+  locale              String
+  assignedClinicianId String?
+  assignedClinician   ClinicianProfile?      @relation(fields: [assignedClinicianId], references: [id])
+  consents            Consent[]
+  intakes             IntakeQuestionnaire[]
+  encounters          Encounter[]
+  threads             MessageThread[]
+  files               FileAsset[]            @relation("patientFiles")
+}
+
+model ClinicianProfile {
+  id            String           @id @default(cuid())
+  userId        String           @unique
+  user          User             @relation(fields: [userId], references: [id])
+  displayName   String
+  licenseNumber String
+  patients      PatientProfile[]
+  encounters    Encounter[]
+  threads       MessageThread[]
+}
+
+model Consent {
+  id         String         @id @default(cuid())
+  patientId  String
+  patient    PatientProfile @relation(fields: [patientId], references: [id])
+  type       String
+  acceptedAt DateTime
+}
+
+model IntakeQuestionnaire {
+  id               String         @id @default(cuid())
+  patientId        String
+  patient          PatientProfile @relation(fields: [patientId], references: [id])
+  status           IntakeStatus
+  answersJson      Json
+  summaryEncrypted String
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+}
+
+model Encounter {
+  id             String           @id @default(cuid())
+  patientId      String
+  patient        PatientProfile   @relation(fields: [patientId], references: [id])
+  clinicianId    String
+  clinician      ClinicianProfile @relation(fields: [clinicianId], references: [id])
+  notesEncrypted String
+  createdAt      DateTime         @default(now())
+}
+
+model MessageThread {
+  id         String           @id @default(cuid())
+  patientId  String
+  patient    PatientProfile   @relation(fields: [patientId], references: [id])
+  clinicianId String
+  clinician  ClinicianProfile @relation(fields: [clinicianId], references: [id])
+  messages   Message[]
+  createdAt  DateTime         @default(now())
+}
+
+model Message {
+  id           String        @id @default(cuid())
+  threadId     String
+  thread       MessageThread @relation(fields: [threadId], references: [id])
+  senderUserId String
+  senderUser   User          @relation(fields: [senderUserId], references: [id])
+  bodyEncrypted String
+  createdAt    DateTime      @default(now())
+}
+
+model FileAsset {
+  id          String          @id @default(cuid())
+  ownerUserId String
+  ownerUser   User            @relation("ownerFiles", fields: [ownerUserId], references: [id])
+  patientId   String?
+  patient     PatientProfile? @relation("patientFiles", fields: [patientId], references: [id])
+  storageKey  String
+  mimeType    String
+  createdAt   DateTime        @default(now())
+}
+
+model Subscription {
+  id               String   @id @default(cuid())
+  userId           String
+  user             User     @relation(fields: [userId], references: [id])
+  stripeCustomerId String   @unique
+  status           String
+  createdAt        DateTime @default(now())
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  actorUserId String
+  actor       User     @relation(fields: [actorUserId], references: [id])
+  action      String
+  resourceType String
+  resourceId  String
+  createdAt   DateTime @default(now())
+
+  @@index([actorUserId, createdAt])
+}

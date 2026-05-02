@@ -1,0 +1,7 @@
+{
+  "nav":{"dashboard":"Tableau de bord","patients":"Patients assignés","triage":"Triage des admissions","audit":"Audit"},
+  "dashboard":{"title":"Tableau clinicien"},
+  "patients":{"title":"Liste des patients assignés"},
+  "triage":{"title":"Triage des admissions"},
+  "audit":{"title":"Journaux d'audit"}
+}

@@ -1,0 +1,9 @@
+{
+  "nav": {"home":"Home","services":"Services","pricing":"Pricing","about":"About","legal":"Legal","contact":"Contact","cta":"Start as patient"},
+  "home": {"title":"Preventive and longevity medicine, securely online","subtitle":"Swiss telehealth for intake, triage, follow-up, and clinician messaging.","disclaimer":"Does not replace emergency care"},
+  "services":{"title":"Services"},
+  "pricing":{"title":"Pricing"},
+  "about":{"title":"About"},
+  "legal":{"title":"Legal"},
+  "contact":{"title":"Contact"}
+}

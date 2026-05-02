@@ -1,0 +1,9 @@
+{
+  "nav": {"home":"Accueil","services":"Services","pricing":"Tarifs","about":"À propos","legal":"Mentions légales","contact":"Contact","cta":"Commencer en tant que patient"},
+  "home": {"title":"Médecine préventive et longévité, en ligne et sécurisée","subtitle":"Télémédecine suisse pour intake, triage, suivi et messagerie clinicien-patient.","disclaimer":"Ne remplace pas les soins d'urgence"},
+  "services":{"title":"Services"},
+  "pricing":{"title":"Tarifs"},
+  "about":{"title":"À propos"},
+  "legal":{"title":"Mentions légales"},
+  "contact":{"title":"Contact"}
+}

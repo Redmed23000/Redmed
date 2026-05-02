@@ -1,0 +1,9 @@
+{
+  "nav":{"dashboard":"Tableau de bord","intake":"Questionnaire d'admission","messages":"Messages","files":"Documents","billing":"Facturation","profile":"Profil"},
+  "dashboard":{"title":"Tableau de bord patient"},
+  "intake":{"title":"Questionnaire d'admission"},
+  "messages":{"title":"Messagerie sécurisée"},
+  "files":{"title":"Téléversement de documents"},
+  "billing":{"title":"Facturation de l'abonnement"},
+  "profile":{"title":"Profil et consentement"}
+}
