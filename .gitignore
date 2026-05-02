@@ -2,3 +2,6 @@
 /data/tardoc/raw/
 __pycache__/
 *.pyc
+/build/
+/dist/
+*.spec
